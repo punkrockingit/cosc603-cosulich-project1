@@ -77,32 +77,11 @@ public class FireDanger {
     	grass = 0;
     	timber = 0;
     	
-    	float[] A = new float[4];
-    	float[] B = new float[4];
-    	float[] C = new float[3];
-    	float[] D = new float[6];
-    	/*
-    	 * These are the table values that are used in computing the danger ratings
-    	 */
-    	A[0] = -0.185900f;
-    	A[1] = -0.85900f;
-    	A[2] = -0.59660f;
-    	A[3] = -0.077373f;
-    	B[0] = 30.0f;
-    	B[1] = 19.2f;
-    	B[2] = 13.8f;
-    	B[3] = 22.5f;
-    	C[0] = 4.5f;
-    	C[1] = 12.5f;
-    	C[2] = 27.5f;
-    	D[0] = 16.0f;
-    	D[1] = 10.0f;
-    	D[2] = 7.0f;
-    	D[3] = 5.0f;
-    	D[4] = 4.0f;
-    	D[5] = 3.0f;
-    	
-    	/*
+    	float[] A = arrayA();
+		float[] B = arrayB();
+		float[] C = arrayC();
+		float[] D = ArrayD();
+		/*
     	 * Checks if there is snow on the ground or not
     	 */
     	if (isnow >= 0.00) {
@@ -266,4 +245,41 @@ public class FireDanger {
     	}
     	return new float[]{df, ffm, adfm, grass, timber, fload, buo};
     } //End Method
+
+	private float[] arrayC() {
+		float[] C = new float[3];
+		C[0] = 4.5f;
+		C[1] = 12.5f;
+		C[2] = 27.5f;
+		return C;
+	}
+
+	private float[] arrayB() {
+		float[] B = new float[4];
+		B[0] = 30.0f;
+		B[1] = 19.2f;
+		B[2] = 13.8f;
+		B[3] = 22.5f;
+		return B;
+	}
+
+	private float[] arrayA() {
+		float[] A = new float[4];
+		A[0] = -0.185900f;
+		A[1] = -0.85900f;
+		A[2] = -0.59660f;
+		A[3] = -0.077373f;
+		return A;
+	}
+
+	private float[] ArrayD() {
+		float[] D = new float[6];
+		D[0] = 16.0f;
+		D[1] = 10.0f;
+		D[2] = 7.0f;
+		D[3] = 5.0f;
+		D[4] = 4.0f;
+		D[5] = 3.0f;
+		return D;
+	}
 }
